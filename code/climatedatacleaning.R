@@ -1,7 +1,7 @@
 library(tidyverse)
 
 #Maximum Temperature
-maximum_temperature <- read_csv("~/AERC Projects/Health Investiments and Underntrition/data/climate data/maximum-temperature.csv") %>% 
+maximum_temperature <- read_csv("data/maximum-temperature.csv") %>% 
   pivot_longer(2:12,
                names_to = "province",
                values_to = "max-temperature") %>% 
@@ -9,14 +9,14 @@ maximum_temperature <- read_csv("~/AERC Projects/Health Investiments and Undernt
 
 
 #Minimum Temperature
-minimum_temperature <- read_csv("~/AERC Projects/Health Investiments and Underntrition/data/climate data/minimum-temperature.csv") %>% 
+minimum_temperature <- read_csv("data/minimum-temperature.csv") %>% 
   pivot_longer(2:12,
                names_to = "province",
                values_to = "min-temperature") %>% 
   filter(Year >= 1980)
 
 #Average Temperature
-mean_temperature <- read_csv("~/AERC Projects/Health Investiments and Underntrition/data/climate data/mean-temperature.csv") %>% 
+mean_temperature <- read_csv("data/mean-temperature.csv") %>% 
   pivot_longer(2:12,
                names_to = "province",
                values_to = "mean-temperature") %>% 
@@ -24,7 +24,7 @@ mean_temperature <- read_csv("~/AERC Projects/Health Investiments and Underntrit
 
 
 #Precipitation Temperature
-precipitation <- read_csv("~/AERC Projects/Health Investiments and Underntrition/data/climate data/precipitation.csv") %>% 
+precipitation <- read_csv("data/precipitation.csv") %>% 
   pivot_longer(2:12,
                names_to = "province",
                values_to = "precipitation") %>% 
@@ -92,7 +92,7 @@ climate_cohort <- rbind(cohort0, cohort1, cohort2, cohort3) %>%
   rename(precipitation_sd = precipitation_fn2)
 
 
-
+# Renaming the Matebeleland North province correctly
 climate_cohort$province <- as.character(climate_cohort$province)
 climate_cohort$province <- ifelse(climate_cohort$province == "matabeleland north", "matebeleland north", climate_cohort$province)
 climate_cohort$province <- ifelse(climate_cohort$province == "matabeleland south", "matebeleland south", climate_cohort$province)
