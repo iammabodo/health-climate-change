@@ -2,7 +2,7 @@ library(tidyverse)
 library(haven)
 
 
-zdhs1999 <- read_dta("~/AERC Projects/Health Investiments and Underntrition/data/1999/1999kr.DTA") %>% 
+zdhs1999 <- read_dta("data/1999kr.DTA") %>% 
   select(
     case.id = caseid,
     birth.hist.index = midx,

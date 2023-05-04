@@ -5,7 +5,7 @@ library(haven)
 
 
 # Importing data and selecting the necessary variables
-zdhs_2015 <- read_stata("2015kr.DTA") |>
+zdhs_2015 <- read_stata("data/2015kr.DTA") |>
   # selecting and renaming relevant variables
   select(
     case.id = caseid,
