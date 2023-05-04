@@ -36,11 +36,6 @@ gmm <- pgmm(child.height.agestd.newho ~ lag(child.height.agestd.newho) + provinc
               child.gender + fam.wealth + hhold.heard.age + bmi.std.newho + precipitation_sd + year-1 | lag(child.height.agestd.newho, 2), data=pdata,  model = "twosteps", effect = "twoways")
 
 
-completedata %>% 
-  ggplot(aes(year, 
-             child.height.agestd.newho,
-             color = province)) +
-  geom_line()
-unique(completedata$province)
+
 
 
